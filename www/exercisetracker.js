@@ -175,6 +175,10 @@ $('#track_info').live('pageshow', function(){
     	trackCoords.push(new google.maps.LatLng(data[i].coords.latitude, data[i].coords.longitude));
     }
     
+    for(i=0; i<trackCoords.length; i++)
+    {
+        $('#track_path').append($('<li>').text(trackCoords[i]));
+    }
     // Plot the GPS entries as a line on the Google Map
     var trackPath = new google.maps.Polyline({
       path: trackCoords,

@@ -46,7 +46,7 @@ $("#startTracking_start").live('click', function(){
         },
         
         // Settings
-        { frequency: 3000, enableHighAccuracy: true });
+        { frequency: 300, enableHighAccuracy: true });
     
     // Tidy up the UI
     track_id = $("#track_id").val();
