@@ -45,8 +45,6 @@ $("#startTracking_start").live('click', function(){
             var options = {
             	url : 'http://www.routing.uc.cl/log_gps',
     			type:'POST',
-    			crossDomain: true,
-    			dataType: 'json',
 	            data: {
 	            	sender:'unknown',
 	        		position: ''+JSON.stringify(position),
