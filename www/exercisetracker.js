@@ -55,7 +55,7 @@ $("#startTracking_start").live('click', function(){
         	{
         		console.log (exception)
         	}
-            	
+            $("#startTracking_status").text("New capture ("+Date.now()+") " + JSON.stringify(position))
         },
         
         // Error
