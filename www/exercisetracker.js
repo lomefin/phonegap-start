@@ -41,8 +41,8 @@ $("#startTracking_start").live('click', function(){
             tracking_data.push(position);
             $("#startTracking_status").text("first success");
             //try{$("#startTracking_status").text("Device UUID"+device.uuid);}catch(e){}
-            $("#latestPoints").prepend($("<li>").text(JSON.stringify(position)));
-            options = {
+            
+            var options = {
             	url : 'http://www.routing.uc.cl/log_gps',
     			type:'POST',
     			crossDomain: true,
@@ -53,9 +53,9 @@ $("#startTracking_start").live('click', function(){
 	        		extra_data:'None'
 	            }
 	        }
-	        $("#startTracking_status").text("Will send: " + JSON.stringify(options))
+	        $("#latestPoints").prepend($("<li>").text("Will send: " + JSON.stringify(options)));
         	try{
-        		$.ajax(options).done(function(data){$("#startTracking_status").text("Sent")});	
+        		$.ajax(options).done(function(data){$("#startTracking_status").text("Sent" + data)});	
         	}catch(exception)
         	{
         		$("#startTracking_status").text("EX:"+exception);
