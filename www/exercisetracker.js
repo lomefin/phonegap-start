@@ -41,6 +41,7 @@ $("#startTracking_start").live('click', function(){
             tracking_data.push(position);
             $("#startTracking_status").text("first success");
             $("#startTracking_status").text(""+Date.now()+": " + JSON.stringify(position))
+            $("#latestPoints").prepend($("<li>").text(JSON.stringify(position)));
             options = {
             	url : 'http://www.routing.uc.cl/log_gps',
     			type:'POST',
