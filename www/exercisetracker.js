@@ -40,7 +40,7 @@ $("#startTracking_start").live('click', function(){
 
             tracking_data.push(position);
             $("#startTracking_status").text("first success");
-            try{$("#startTracking_status").text("Device UUID"+device.uuid);}catch(){}
+            try{$("#startTracking_status").text("Device UUID"+device.uuid);}catch(e){}
             $("#latestPoints").prepend($("<li>").text(JSON.stringify(position)));
             options = {
             	url : 'http://www.routing.uc.cl/log_gps',
