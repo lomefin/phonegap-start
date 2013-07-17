@@ -44,7 +44,7 @@ $("#startTracking_start").live('click', function(){
     			crossDomain: true,
     			dataType: 'json',
 	            data: {
-	            	sender:'DEFAULT',
+	            	sender:''+device.uuid,
 	        		position: ''+JSON.stringify(position),
 	        		extra_data:'None'
 	            }
