@@ -37,9 +37,10 @@ $("#startTracking_start").live('click', function(){
     
     	// Success
         function(position){
+
             tracking_data.push(position);
             $("#startTracking_status").text("first success");
-            $("#startTracking_status").text("New capture ("+Date.now()+") " + JSON.stringify(position))
+            $("#startTracking_status").text(""+Date.now()+": " + JSON.stringify(position))
             options = {
             	url : 'http://www.routing.uc.cl/log_gps',
     			type:'POST',
@@ -51,10 +52,12 @@ $("#startTracking_start").live('click', function(){
 	        		extra_data:'None'
 	            }
 	        }
+	        $("#startTracking_status").text("Will send: " + JSON.stringify(options))
         	try{
-        		$.ajax(options).done(function(data){console.log(data)});	
+        		$.ajax(options).done(function(data){$("#startTracking_status").text("Sent")});	
         	}catch(exception)
         	{
+        		$("#startTracking_status").text("EX:"+exception);
         		console.log (exception)
         	}
             
@@ -66,7 +69,7 @@ $("#startTracking_start").live('click', function(){
         },
         
         // Settings
-        { frequency: 300, enableHighAccuracy: true });
+        { frequency: 3000, enableHighAccuracy: true });
     
     // Tidy up the UI
     track_id = $("#track_id").val();
