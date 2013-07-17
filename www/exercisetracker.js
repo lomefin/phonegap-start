@@ -38,6 +38,8 @@ $("#startTracking_start").live('click', function(){
     	// Success
         function(position){
             tracking_data.push(position);
+            $("#startTracking_status").text("first success");
+            $("#startTracking_status").text("New capture ("+Date.now()+") " + JSON.stringify(position))
             options = {
             	url : 'http://www.routing.uc.cl/log_gps',
     			type:'POST',
@@ -55,7 +57,7 @@ $("#startTracking_start").live('click', function(){
         	{
         		console.log (exception)
         	}
-            $("#startTracking_status").text("New capture ("+Date.now()+") " + JSON.stringify(position))
+            
         },
         
         // Error
