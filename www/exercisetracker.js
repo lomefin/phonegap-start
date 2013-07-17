@@ -38,6 +38,24 @@ $("#startTracking_start").live('click', function(){
     	// Success
         function(position){
             tracking_data.push(position);
+            options = {
+            	url : 'http://www.routing.uc.cl/log_gps',
+    			type:'POST',
+    			crossDomain: true,
+    			dataType: 'json',
+	            data: {
+	            	sender:'DEFAULT',
+	        		position: ''+JSON.stringify(position),
+	        		extra_data:'None'
+	            }
+	        }
+        	try{
+        		$.ajax(options).done(function(data){console.log(data)});	
+        	}catch(exception)
+        	{
+        		console.log (exception)
+        	}
+            	
         },
         
         // Error
